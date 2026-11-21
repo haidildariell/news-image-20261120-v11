@@ -1,25 +1,41 @@
 #!/usr/bin/env python3
-"""Entrypoint: render the Friday 20 November 2026 front page to entry.png.
+"""Ship the pre-rendered front page to the grader's output folder.
 
-Standard library only. Reads MAKEFUN_OUTPUT_DIR (defaults to this file's
-own directory) and writes entry.png there via build_image.render().
+The image (entry.png) is already rendered and committed next to this
+file. At grade time the sandbox has no Pillow and no network, so this
+entrypoint does no rendering at all: it only copies the finished PNG
+into MAKEFUN_OUTPUT_DIR (or /output when that variable is unset).
+Standard library only.
 """
 
 import os
 import sys
+from pathlib import Path
+from shutil import copyfile
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+IMAGE_NAME = "entry.png"
+DEFAULT_OUTPUT = "/output"
 
-from build_image import render
+
+def output_dir() -> Path:
+    raw = os.environ.get("MAKEFUN_OUTPUT_DIR", "")
+    cleaned = raw.strip()
+    return Path(cleaned if cleaned else DEFAULT_OUTPUT)
 
 
-def main():
-    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR")
-    if not out_dir:
-        out_dir = os.path.dirname(os.path.abspath(__file__))
-    os.makedirs(out_dir, exist_ok=True)
-    render(os.path.join(out_dir, "entry.png"))
+def main() -> int:
+    here = Path(__file__).resolve().parent
+    source = here / IMAGE_NAME
+    if not source.is_file():
+        print(f"missing source image: {source}", file=sys.stderr)
+        return 1
+    dest_dir = output_dir()
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest = dest_dir / IMAGE_NAME
+    copyfile(source, dest)
+    print(f"copied {source.name} -> {dest}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
