@@ -1,5 +1,8 @@
 # Friday 20 November 2026 — 36 stories, 7 regions, one front page
 
+[![make.fun · news-image-20261120](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![rank](https://make.fun/badge/news-image-20261120/haidildariell/news-image-20261120-v11/rank.svg)](https://make.fun/bounty/news-image-20261120/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![reward](https://make.fun/badge/news-image-20261120/haidildariell/news-image-20261120-v11/reward.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
 [![make.fun bounty](https://img.shields.io/badge/make.fun-news--image--20261120-red)](https://make.fun/bounty/news-image-20261120)
 [![Prize pool $250](https://img.shields.io/badge/prize%20pool-%24250-gold)](https://make.fun/bounty/news-image-20261120)
 [![Top 50 paid](https://img.shields.io/badge/paid%20places-top%2050-blue)](https://make.fun/bounty/news-image-20261120)
